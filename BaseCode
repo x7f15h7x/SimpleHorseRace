@@ -1,0 +1,33 @@
+import random
+
+def run_race(horses):
+    race_distance = 10  # Distance of the race track
+
+    for horse in horses:
+        horse['position'] = 0
+
+    while True:
+        for horse in horses:
+            distance = random.randint(1, 2)  # Distance the horse moves in each turn
+            horse['position'] += distance
+
+            if horse['position'] >= race_distance:
+                print(f"Horse {horse['name']} wins the race!")
+                return
+
+def play_game():
+    horses = [
+        {'name': 'Horse 1', 'position': 0},
+        {'name': 'Horse 2', 'position': 0},
+        {'name': 'Horse 3', 'position': 0},
+        {'name': 'Horse 4', 'position': 0},
+    ]
+
+    print("Welcome to the Horse Racing Game!")
+    input("Press Enter to start the race...")
+
+    run_race(horses)
+
+    print("Game Over!")
+
+play_game()
